@@ -6,14 +6,24 @@
 </head>
 <body>
     <ul id="cat-list"></ul>
+    <!-- ko with: currentCat() -->
     <div id="cat">
 
         <h2 id="cat-name" data-bind="text: name"></h2>
         <h3 id="cat-level" data-bind="text: catLevelUp"></h3>
         <div id="cat-count" data-bind="text: clickCount"></div>
-        <img id="cat-img" src="" alt="cute cat" data-bind="click: incrementCounter, attr: {src: imgSrc}">
-
+        <img id="cat-img" src="" alt="cute cat" data-bind="click: $parent.incrementCounter, attr: {src: imgSrc}">
+         <div id="nicknames">
+        <h2>Nicknames</h2>
+            <ul data-bind="foreach: nickNames">
+                <li>
+                    <span data-bind="text: $data"></span>
+                </li>
+            </ul>
+        </div>
     </div>
+   
+    <!-- /ko -->
     <script src="js/lib/knockout-3.2.0.js"></script>
     <script src="js/app.js"></script>
 </body>
